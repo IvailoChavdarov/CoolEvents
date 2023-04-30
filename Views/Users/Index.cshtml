@@ -1,0 +1,9 @@
+﻿@model List<AppUser>
+@foreach (var user in Model)
+{
+    <p>@user.UserName</p>
+    <form asp-action="Delete" asp-route-id="@user.Id">
+        <button type="submit">Delete user</button>
+    </form>
+    <a asp-action="Edit" asp-route-id="@user.Id">Edit</a>
+}    

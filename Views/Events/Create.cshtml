@@ -1,0 +1,51 @@
+﻿@model Event
+
+@{
+    ViewData["Title"] = "Create event";
+}
+
+<h1>Create event</h1>
+<hr />
+<div class="container">
+<form asp-action="Create" id="event-form">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="form-group">
+        <label asp-for="Name" class="control-label"></label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Description" class="control-label"></label>
+        <input asp-for="Description" class="form-control" />
+        <span asp-validation-for="Description" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="ImageUrl" class="control-label"></label>
+        <input asp-for="ImageUrl" class="form-control" id="eventImageInput" placeholder="Image URL"/>
+        <span asp-validation-for="ImageUrl" class="text-danger"></span>
+    </div>
+    <div class="form-floating" style="height:50px">
+        <span> or </span>
+        <label for="eventImageUpload" class="custom-file-upload">
+            <i class="fas fa-cloud-upload-alt"></i> Upload image
+            <input type="file" id="eventImageUpload" name="eventImageUpload" />
+        </label>
+
+        <span id="imageValidationText" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="EventDate" class="control-label"></label>
+        <input asp-for="EventDate" type="date" class="form-control" value="@DateTime.Now.ToString("dd/MM/yyyy")" />
+        <span asp-validation-for="EventDate" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <input type="button" id="eventSubmitButton" value="Create" class="btn btn-success" />
+    </div>
+</form>
+</div>
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    <script src="~/js/uploadImage.js"></script>
+}

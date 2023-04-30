@@ -1,0 +1,16 @@
+﻿@model HomePageViewModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    @if (Model.HasAccessToStats)
+    {
+        <div class="row">
+            <div class="col-4">@Model.UsersCount users</div>
+            <div class="col-4">@Model.TicketsCount tickets</div>
+            <div class="col-4">@Model.EventsCount events</div>
+        </div>
+    }
+</div>

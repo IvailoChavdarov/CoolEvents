@@ -1,0 +1,40 @@
+﻿@model EditTicketViewModel
+
+@{
+    ViewData["Title"] = "Create ticket";
+}
+
+<h1>Create ticket</h1>
+<hr />
+    <div class="container">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Ticket.Id" />
+            <div class="form-group">
+                <label asp-for="Ticket.UserId">User</label>
+                <select asp-for="Ticket.UserId" class="form-control">
+                    <option value="@Model.Ticket.UserId" selected>@Model.Ticket.User.UserName (current)</option>
+                    @foreach (AppUser user in Model.Users)
+                    {
+                        <option value="@user.Id">@user.UserName</option>
+                    }
+                </select>
+            </div>
+                <div class="form-group">
+                <label asp-for="Ticket.EventId">Event</label>
+                <select asp-for="Ticket.EventId" class="form-control">
+                    <option value="@Model.Ticket.EventId" selected>@Model.Ticket.Event.Name (current)</option>
+                    @foreach (Event eventItem in Model.Events)
+                    {
+                         <option value="@eventItem.Id">@eventItem.Name</option>
+                    }
+                </select>
+                <input type="submit" value="Save" class="btn btn-success" />
+            </div>
+        </form>
+    </div>
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

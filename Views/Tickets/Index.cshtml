@@ -1,0 +1,5 @@
+﻿@model List<Ticket>
+@foreach(Ticket ticket in Model){
+    <p>@ticket.Event.Name</p>
+    <p>@ticket.Event.EventDate.ToString("dd/MM/yyyy")</p>
+}

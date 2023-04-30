@@ -1,0 +1,50 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+.custom-file-upload {
+    border: 3px solid #eb6600;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+    pointer-events: all!important;
+    height: 40px;
+    color: #eb6600;
+    margin-left: 30px;
+}
+
+.custom-file-upload .fas {
+    color: #eb6600;
+}
+
+input[type="file"]{
+    display:none;
+}
+.container form{
+    max-width:1000px;
+    margin:auto;
+}
+.container form button, .container form input[type="button"]{
+    margin-top:25px;
+    width:150px;
+    padding:7px;
+    font-size:large;
+}
+.container form select{
+    margin:10px;
+}
