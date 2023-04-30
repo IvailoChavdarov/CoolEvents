@@ -35,7 +35,7 @@ namespace CoolEvents.Controllers
                 data.UsersCount = _userManager.Users.Count();
                 data.TicketsCount = _db.Tickets.Count();
             }
-            return View();
+            return View(data);
         }
 
         public IActionResult Privacy()
